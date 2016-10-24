@@ -1,9 +1,6 @@
 {
-  "name": "@alife/mf",
+  "name": "mf",
   "version": "0.1.4",
-  "publishConfig": {
-    "registry": "http://registry.npm.alibaba-inc.com"
-  },
   "scripts": {
     "build": "rimraf lib && babel src --out-dir lib"
   },
