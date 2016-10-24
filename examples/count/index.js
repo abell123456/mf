@@ -6,7 +6,7 @@ const delay = timeout => new Promise(resolve => setTimeout(resolve, timeout));
 
 
 import App from './components/Container';
-import createLoading from '../../plugins/mf-loading';
+import createLoading from '../../pluginss/mf-loading';
 
 // 1. Initialize
 const app = mf();
