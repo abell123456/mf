@@ -1,6 +1,4 @@
-/**
-    see: https://github.com/dvajs/dva/tree/master
-*/
+// 该入口文件给应用做一些默认设置
 
 import {
     hashHistory,
@@ -13,15 +11,14 @@ import {
     routerReducer as routing
 } from 'react-router-redux';
 
-import createMf from './createMf';
+import createMf from './create-mf';
 
 export default createMf({
-    mobile: false,
     initialReducer: {
         routing
     },
     defaultHistory: hashHistory,
-    routerMiddleware: routerMiddleware,
+    routerMiddleware,
 
     setupHistory(history) {
         const h = this._history = syncHistoryWithStore(history, this._store);
@@ -30,7 +27,8 @@ export default createMf({
             history: h
         });
 
-        h.listen = callback => {
+        // 这里是监听router变化
+        /**h.listen = callback => {
             listen.call(h, location => {
                 match({
                     location,
@@ -44,6 +42,6 @@ export default createMf({
                     callback(location, renderProps || {});
                 });
             });
-        };
+        };*/
     }
 });

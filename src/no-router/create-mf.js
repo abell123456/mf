@@ -1,23 +1,27 @@
 import React from 'react';
+import Plugin from '../plugin';
 
 import {
     model,
-    router,
+    useCC,
     start
 } from './helpers';
 
 export default function createMf(createOpts) {
+    // 返回一个函数，用于创建App
     return function mf(hooks = {}) {
+
+        const plugin = new Plugin();
+
         const app = {
             // properties
             _models: [],
-            _router: null,
             _store: null,
-            _history: null,
             model,
-            router,
+            useCC,
+            use: plugin.use.bind(plugin),
             start(container) {
-                start.call(this, container, hooks, createOpts);
+                return start.call(this, container, hooks, createOpts, plugin);
             }
         };
 
